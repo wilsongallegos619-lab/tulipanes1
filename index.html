@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ramo de Tulipanes Azules</title>
+    <title>Ramo de Tulipanes Rojos</title>
     <style>
         *,
         *::after,
@@ -943,101 +942,10 @@
         }
     </style>
 </head>
-<body class="not-loaded">
-  <!-- Botón para ti y audio, el resto oculto al inicio -->
-  <div id="pantalla-inicial" class="modal-inicio">
-    <div class="modal-contenido">
-  <div class="modal-titulo">¡Bienvenida!</div>
-      <div class="modal-texto">Haz clic en el botón para descubrir tu ramo especial de tulipanes.</div>
-      <button id="btn-para-ti" class="btn-para-ti">Para ti</button>
-    </div>
-    <audio id="audio-para-ti" src="https://github.com/Baque2005/Organizador/raw/refs/heads/master/PUBLIC%20-%20Make%20You%20Mine%20%20Sub%20espa%C3%B1ol%20(lyrics).mp3"></audio>
-  </div>
-  <style>
-    .modal-inicio {
-      position: fixed;
-      top: 0; left: 0; width: 100vw; height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 300;
-      background: rgba(255,255,255,0.98); /* blanco translúcido */
-      backdrop-filter: blur(2.5px) brightness(1.05);
-      animation: modalFadeIn 1.2s;
-    }
-    @keyframes modalFadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    .modal-contenido {
-      background: #fff;
-      border-radius: 32px;
-      box-shadow: 0 8px 48px #a8000022, 0 0 0 6px #fff3;
-      padding: 3.5em 2.5em 2.5em 2.5em;
-      text-align: center;
-      min-width: 320px;
-      max-width: 90vw;
-      border: 2.5px solid #a80000;
-      position: relative;
-      animation: modalContentPop 1.2s cubic-bezier(.4,0,.2,1);
-    }
-    @keyframes modalContentPop {
-      0% { transform: scale(0.7) translateY(40px); opacity: 0; }
-      80% { transform: scale(1.05) translateY(-8px); opacity: 1; }
-      100% { transform: scale(1) translateY(0); opacity: 1; }
-    }
-    .modal-titulo {
-      font-size: 2.2em;
-      font-family: 'Segoe Script', 'Comic Sans MS', cursive;
-      color: #a80000;
-      margin-bottom: 0.5em;
-      text-shadow: 0 2px 16px #a8000033, 0 0 2px #fff;
-      letter-spacing: 1px;
-    }
-    .modal-texto {
-      font-size: 1.2em;
-      color: #222;
-      margin-bottom: 2em;
-      font-family: 'Arial Rounded MT Bold', 'Arial', sans-serif;
-      text-shadow: 0 1px 8px #fff8, 0 0 2px #a8000022;
-    }
-    .btn-para-ti {
-      padding: 1.2em 2.7em;
-      font-size: 2em;
-      border-radius: 30px;
-      background: #fff;
-      color: #a80000;
-      border: 2.5px solid #a80000;
-      box-shadow: 0 0 24px #a8000022, 0 0 48px #fffbe622;
-      cursor: pointer;
-      font-family: 'Arial Rounded MT Bold', 'Arial', sans-serif;
-      letter-spacing: 2px;
-      transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
-      position: relative;
-      overflow: hidden;
-    }
-    .btn-para-ti::after {
-      content: "";
-      position: absolute;
-      left: 0; top: 0; right: 0; bottom: 0;
-      border-radius: 30px;
-      background: radial-gradient(circle at 60% 40%, #fff3 0%, #a80000 10%);
-      opacity: 0.08;
-      pointer-events: none;
-    }
-    .btn-para-ti:hover {
-      background: #f8f8f8;
-      box-shadow: 0 0 32px #fffbe6cc, 0 0 64px #a8000022;
-      transform: scale(1.05);
-    }
-    .btn-para-ti:active {
-      transform: scale(0.98);
-      box-shadow: 0 0 16px #a8000022;
-    }
-  </style>
-  <div id="contenido-principal" style="display:none;">
+<body>
+  <!-- Todo el contenido visible directamente -->
   <div class="night"></div>
-  <div class="particles"></div la niña más bonita del mundo>
+  <div class="particles"></div>
   <div class="special-text">Estas flores rojas llevan el mismo fuego con el que pienso en ti</div>
     <div class="shooting-stars">
       <div class="shooting-star"></div>
@@ -1276,20 +1184,12 @@
       }
     }
     createParticles();
-  document.body.classList.remove('not-loaded');
-    // Botón para ti: al hacer clic, reproduce música y muestra el resto
-    document.getElementById('btn-para-ti').onclick = function() {
-      var audio = document.getElementById('audio-para-ti');
-      audio.currentTime = 0;
-      audio.play();
-      // Oculta pantalla inicial y muestra contenido principal
-      document.getElementById('pantalla-inicial').style.display = 'none';
-      document.getElementById('contenido-principal').style.display = '';
-      // Espera a que terminen las animaciones de los tulipanes (~2.5s)
-      setTimeout(function() {
-        document.querySelector('.ramo').classList.add('ramo--visible');
-      }, 2500);
-    };
+    document.body.classList.remove('not-loaded');
+    
+    // Mostrar el ramo después de que carguen las animaciones iniciales
+    setTimeout(function() {
+      document.querySelector('.ramo').classList.add('ramo--visible');
+    }, 2500);
   </script>
 </body>
 </html>
